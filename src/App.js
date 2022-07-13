@@ -1,38 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
-import './Navbar.css';
-import Navbar from './Navbar';
-import { useState, useEffect } from 'react';
-import Emote from './Emote';
+import { useState } from 'react';
 
 function App() {
-  const [emotion, setEmotion] = useState("Happy");
-  const [secondary, setSecondary] = useState("Tired");
 
 
-  useEffect(() => {
-    console.log("Emotion changed to " + emotion);
-  }, [emotion]);
-
-
+  // form
+  const [title, setTitle] = useState('');
+  const [color, setColor] = useState('');
+  const submit = (e) => {
+    e.preventDefault();
+    alert(`${title}, ${color}`);
+    setTitle('');
+    setColor('000000');
+  }
+  // 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Navbar
-          option1="About"
-          option2="Services"
-          option3="Contact"
-          option4="Login"
-        />
-        <Emote
-          emotion={emotion}
-          setEmotion={setEmotion}
-          secondary={secondary}
-          setSecondary={setSecondary}
-        />
-      </header>
-    </div>
+    <form onSubmit={submit}>
+      <input
+        value={title}
+        type="text"
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="color title..."
+      />
+      <input value={color}
+        onChange={(e) => setColor(e.target.value)}
+        type="color" />
+      <button>ADD</button>
+    </form>
+
   );
 }
 
