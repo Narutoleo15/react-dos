@@ -1,0 +1,20 @@
+.Navbar {
+	display: flex;
+	flex-direction: row;
+	position: fixed;
+	top: 0rem;
+	left: 0rem;
+	right: 0rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	align-content: center;
+	align-items: center;
+	height: calc(var(--u_hdh, 1hdh) * 1);
+	background: hsla(0, 0%, 100%, 0%);
+	justify-content: space-between;
+}
+
+.Navbar a {
+	text-decoration: none;
+	padding: 0 0.5rem;
+}
